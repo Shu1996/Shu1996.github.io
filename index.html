@@ -314,18 +314,16 @@
       
         
           
-            <h1 id="Lesson1-Hash-Table-and-String"><a href="#Lesson1-Hash-Table-and-String" class="headerlink" title="Lesson1: Hash Table and String"></a>Lesson1: Hash Table and String</h1><p>##1 Hash Table</p>
-<p>###1.1 introduction<br><strong>pros</strong>: add, delete, find <strong>O(1) time</strong><br><strong>cons</strong>: much storage <strong>O(n) space</strong><br>key value -&gt; int num(in hash function) -&gt; num % n as index</p>
+            <h1 id="Lesson1-Hash-Table-and-String"><a href="#Lesson1-Hash-Table-and-String" class="headerlink" title="Lesson1: Hash Table and String"></a>Lesson1: Hash Table and String</h1><h2 id="1-Hash-Table"><a href="#1-Hash-Table" class="headerlink" title="1 Hash Table"></a>1 Hash Table</h2><h3 id="1-1-introduction"><a href="#1-1-introduction" class="headerlink" title="1.1 introduction"></a>1.1 introduction</h3><p><strong>pros</strong>: add, delete, find <strong>O(1) time</strong><br><strong>cons</strong>: much storage <strong>O(n) space</strong><br>key value -&gt; int num(in hash function) -&gt; num % n as index</p>
 <p><strong>using array, list, resize</strong></p>
 <p><font color="blue">  When the data is 90% full in the table or more, the efficience begins to drop.  </font><br><strong>avoid conflict:</strong> Linked List in Arrays<br>if data/size.array() || length.LinkedList &gt; 5:<br>resize: 2 times size of the array</p>
 <p>HashSet &amp; HashMap</p>
-<p>###1.2 scenarios not suitable for hash tables</p>
-<ul>
+<h3 id="1-2-scenarios-not-suitable-for-hash-tables"><a href="#1-2-scenarios-not-suitable-for-hash-tables" class="headerlink" title="1.2 scenarios not suitable for hash tables"></a>1.2 scenarios not suitable for hash tables</h3><ul>
 <li>find the ith elements from a data set [array]</li>
 <li>data are sorted(find max/min [heap], find a element greater than a given number [BST])</li>
 <li>hash table <string> find strings with a prefix</string></li>
 </ul>
-<p>###1.3 HashMap<br><strong>replaced by array</strong></p>
+<h3 id="1-3-HashMap"><a href="#1-3-HashMap" class="headerlink" title="1.3 HashMap"></a>1.3 HashMap</h3><p><strong>replaced by array</strong></p>
 <ul>
 <li>If the number of keys is fixed and not large, use the array.</li>
 <li>Array’s find function is quicker than hash table.<br><strong>create</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;key type, value type&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">|| HashMap&lt;key type, value type&gt; map = new HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
@@ -340,8 +338,7 @@
 <li>map.containsKey(key)<br>find if key exists in map</li>
 <li>map.remove(key)</li>
 </ul>
-<p>###1.4 practice</p>
-<h4 id="LC242-valid-anagram"><a href="#LC242-valid-anagram" class="headerlink" title="LC242 valid anagram"></a>LC242 valid anagram</h4><p><strong>possible solution1</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(array)  // sort the array in ascii</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-4-practice"><a href="#1-4-practice" class="headerlink" title="1.4 practice"></a>1.4 practice</h3><h4 id="LC242-valid-anagram"><a href="#LC242-valid-anagram" class="headerlink" title="LC242 valid anagram"></a>LC242 valid anagram</h4><p><strong>possible solution1</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(array)  // sort the array in ascii</span><br></pre></td></tr></table></figure></p>
 <p>O(nlogn) time<br><strong>hash table/array</strong><br>int[] counts = new int[26];</p>
 <h4 id="LC49-Group-Anagrams"><a href="#LC49-Group-Anagrams" class="headerlink" title="LC49 Group Anagrams"></a>LC49 Group Anagrams</h4><p>like “dictionary” Map&lt;String, List<string>&gt;</string></p>
 <h4 id="LC380-Insert-delete-GetRandom-O-1"><a href="#LC380-Insert-delete-GetRandom-O-1" class="headerlink" title="LC380 Insert delete GetRandom O(1)"></a>LC380 Insert delete GetRandom O(1)</h4><ul>
