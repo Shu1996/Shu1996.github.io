@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/next_large.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/next_small.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Exercisepre-sum and tow-pointertow pointers: suitable for arrays with positive numberspre-sum: ① array / HashMap; ② suitable for arrays with both positive and negative numbers; ③ cautions to overflow,">
+<meta name="keywords" content="Leetcode, Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="L2 LinkedList">
+<meta property="og:url" content="https://shu1996.github.io/2018/06/02/L2-LinkedList/index.html">
+<meta property="og:site_name" content="Bon Voyage">
+<meta property="og:description" content="Exercisepre-sum and tow-pointertow pointers: suitable for arrays with positive numberspre-sum: ① array / HashMap; ② suitable for arrays with both positive and negative numbers; ③ cautions to overflow,">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-06-02T14:48:48.407Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="L2 LinkedList">
+<meta name="twitter:description" content="Exercisepre-sum and tow-pointertow pointers: suitable for arrays with positive numberspre-sum: ① array / HashMap; ② suitable for arrays with both positive and negative numbers; ③ cautions to overflow,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://shu1996.github.io/2018/06/02/L2-LinkedList/"/>
+
+
+
+
+
+  <title>L2 LinkedList | Bon Voyage</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bon Voyage</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shu1996.github.io/2018/06/02/L2-LinkedList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shu Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bon Voyage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">L2 LinkedList</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T21:44:39+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h1><h2 id="pre-sum-and-tow-pointer"><a href="#pre-sum-and-tow-pointer" class="headerlink" title="pre-sum and tow-pointer"></a>pre-sum and tow-pointer</h2><p><strong>tow pointers:</strong> suitable for arrays with positive numbers<br><strong>pre-sum:</strong> ① array / HashMap; ② suitable for arrays with both positive and negative numbers; ③ cautions to overflow, especially with multiplication</p>
+<h1 id="ListLinked"><a href="#ListLinked" class="headerlink" title="ListLinked"></a>ListLinked</h1><h2 id="Singly-Linked-List"><a href="#Singly-Linked-List" class="headerlink" title="Singly Linked List"></a>Singly Linked List</h2><h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static ListNode delete(ListNode head, int value)</span><br><span class="line">node.next = node.next.next;</span><br></pre></td></tr></table></figure>
+<p><strong>Because</strong> the head may be deleted, so return a listnode instead of void.<br><strong>PS:</strong> revise the Nth node, operate with the (N-1)th node</p>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise"></a>Exercise</h3><h4 id="Trick-Dummy-Node"><a href="#Trick-Dummy-Node" class="headerlink" title="[Trick] Dummy Node"></a>[Trick] Dummy Node</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ListNode dummy = new ListNode(0);</span><br><span class="line">dummy.next = head;</span><br><span class="line">...</span><br><span class="line">return dummy.next;</span><br></pre></td></tr></table></figure>
+<h4 id="LC-19-remove-nth-node-from-end"><a href="#LC-19-remove-nth-node-from-end" class="headerlink" title="LC 19 remove nth node from end"></a>LC 19 remove nth node from end</h4><p><strong>[go through one time]</strong> find the (n+1)th node from end<br><strong>[Method]</strong> two pointers</p>
+<ul>
+<li>P1 go n steps</li>
+<li>P2 go from dummy</li>
+</ul>
+<h4 id="LC-142-entry-point-in-list-loop"><a href="#LC-142-entry-point-in-list-loop" class="headerlink" title="LC 142 entry point in list loop"></a>LC 142 entry point in list loop</h4><ul>
+<li>if there is a loop in the list<br>two points, one go fast (2 steps a time), one go slow; if they meet</li>
+<li>locate the entry when n nodes in the loop<br>if there are n nodes, P1 go n steps in advance, P2 then follow, they meet at the entry</li>
+<li>how to count<br>find any loop node and move along until go back</li>
+</ul>
+<h4 id="LC-160-Intersection-of-two-linked-lists"><a href="#LC-160-Intersection-of-two-linked-lists" class="headerlink" title="LC 160 Intersection of two linked lists"></a>LC 160 Intersection of two linked lists</h4><p><strong>[method1]</strong> find the length of L1 and L2<br>P1 go advance (L1-L2) steps<br><strong>[method2]</strong> make a loop by connecting L1’s head with common’s tail node</p>
+<h4 id="LC-206-reverse-a-list-in-O-1"><a href="#LC-206-reverse-a-list-in-O-1" class="headerlink" title="LC 206 reverse a list in O(1)"></a>LC 206 reverse a list in O(1)</h4><p><strong>[method1]</strong> Stack [O(n)space]<br><strong>[method2]</strong> recursion<br><strong>[method3]</strong> know the ith next previous node</p>
+<h4 id="LC-445-Add-numbers-in-lists"><a href="#LC-445-Add-numbers-in-lists" class="headerlink" title="LC 445 Add numbers in lists **"></a>LC 445 Add numbers in lists <em>**</em></h4><p>reverse L1 and L2 and add in digits and remember the carry-bit<br><strong>PS:</strong> the result’s length might be longer than the origial</p>
+<ul>
+<li>reverse L1, L2</li>
+<li>reverse add(L1,L2)</li>
+</ul>
+<h2 id="Doubly-Linked-List"><a href="#Doubly-Linked-List" class="headerlink" title="Doubly Linked List"></a>Doubly Linked List</h2><p>{<br>  ListNode next;<br>  ListNode prev;<br>}</p>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise"></a>Exercise</h3><h4 id="Convert-BST-to-Doubly-Linked-List"><a href="#Convert-BST-to-Doubly-Linked-List" class="headerlink" title="Convert BST to Doubly Linked List"></a>Convert BST to Doubly Linked List</h4><p><strong>[Rotation]</strong> waiting to study</p>
+<h2 id="Circular-Linked-List"><a href="#Circular-Linked-List" class="headerlink" title="Circular Linked List"></a>Circular Linked List</h2><h4 id="facebook-Keep-circular-linked-list-sorted"><a href="#facebook-Keep-circular-linked-list-sorted" class="headerlink" title="[facebook] Keep circular linked list sorted"></a>[facebook] Keep circular linked list sorted</h4><p>waiting to study<br>new node: max, min, in between<br>using prev, next</p>
+<ul>
+<li>in between: prev &lt; n &lt; next</li>
+<li>min: after maxList</li>
+<li>max: after maxList<br><strong>special case:</strong> only 1 node; null list</li>
+</ul>
+<h1 id="Corner-Case-in-Linked-List"><a href="#Corner-Case-in-Linked-List" class="headerlink" title="Corner Case in Linked List"></a>Corner Case in Linked List</h1><ul>
+<li>empty lists</li>
+<li>lists with only node</li>
+<li>head node</li>
+<li>tail node</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/27/common-methods/" rel="next" title="common methods">
+                <i class="fa fa-chevron-left"></i> common methods
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/02/L3-StackQueue/" rel="prev" title="L3 StackQueue">
+                L3 StackQueue <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Shu Wang</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercise"><span class="nav-number">1.</span> <span class="nav-text">Exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pre-sum-and-tow-pointer"><span class="nav-number">1.1.</span> <span class="nav-text">pre-sum and tow-pointer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ListLinked"><span class="nav-number">2.</span> <span class="nav-text">ListLinked</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Singly-Linked-List"><span class="nav-number">2.1.</span> <span class="nav-text">Singly Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete"><span class="nav-number">2.1.1.</span> <span class="nav-text">Delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">Exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Trick-Dummy-Node"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">[Trick] Dummy Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LC-19-remove-nth-node-from-end"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">LC 19 remove nth node from end</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LC-142-entry-point-in-list-loop"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">LC 142 entry point in list loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LC-160-Intersection-of-two-linked-lists"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">LC 160 Intersection of two linked lists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LC-206-reverse-a-list-in-O-1"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">LC 206 reverse a list in O(1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LC-445-Add-numbers-in-lists"><span class="nav-number">2.1.2.6.</span> <span class="nav-text">LC 445 Add numbers in lists **</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doubly-Linked-List"><span class="nav-number">2.2.</span> <span class="nav-text">Doubly Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">Exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Convert-BST-to-Doubly-Linked-List"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Convert BST to Doubly Linked List</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Circular-Linked-List"><span class="nav-number">2.3.</span> <span class="nav-text">Circular Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#facebook-Keep-circular-linked-list-sorted"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">[facebook] Keep circular linked list sorted</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case-in-Linked-List"><span class="nav-number">3.</span> <span class="nav-text">Corner Case in Linked List</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shu Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

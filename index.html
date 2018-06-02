@@ -243,6 +243,401 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shu1996.github.io/2018/06/02/L3-StackQueue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shu Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bon Voyage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/02/L3-StackQueue/" itemprop="url">L3 StackQueue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T22:50:01+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shu1996.github.io/2018/06/02/L2-LinkedList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shu Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bon Voyage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/02/L2-LinkedList/" itemprop="url">L2 LinkedList</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T21:44:39+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h1><h2 id="pre-sum-and-tow-pointer"><a href="#pre-sum-and-tow-pointer" class="headerlink" title="pre-sum and tow-pointer"></a>pre-sum and tow-pointer</h2><p><strong>tow pointers:</strong> suitable for arrays with positive numbers<br><strong>pre-sum:</strong> ① array / HashMap; ② suitable for arrays with both positive and negative numbers; ③ cautions to overflow, especially with multiplication</p>
+<h1 id="ListLinked"><a href="#ListLinked" class="headerlink" title="ListLinked"></a>ListLinked</h1><h2 id="Singly-Linked-List"><a href="#Singly-Linked-List" class="headerlink" title="Singly Linked List"></a>Singly Linked List</h2><h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static ListNode delete(ListNode head, int value)</span><br><span class="line">node.next = node.next.next;</span><br></pre></td></tr></table></figure>
+<p><strong>Because</strong> the head may be deleted, so return a listnode instead of void.<br><strong>PS:</strong> revise the Nth node, operate with the (N-1)th node</p>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise"></a>Exercise</h3><h4 id="Trick-Dummy-Node"><a href="#Trick-Dummy-Node" class="headerlink" title="[Trick] Dummy Node"></a>[Trick] Dummy Node</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ListNode dummy = new ListNode(0);</span><br><span class="line">dummy.next = head;</span><br><span class="line">...</span><br><span class="line">return dummy.next;</span><br></pre></td></tr></table></figure>
+<h4 id="LC-19-remove-nth-node-from-end"><a href="#LC-19-remove-nth-node-from-end" class="headerlink" title="LC 19 remove nth node from end"></a>LC 19 remove nth node from end</h4><p><strong>[go through one time]</strong> find the (n+1)th node from end<br><strong>[Method]</strong> two pointers</p>
+<ul>
+<li>P1 go n steps</li>
+<li>P2 go from dummy</li>
+</ul>
+<h4 id="LC-142-entry-point-in-list-loop"><a href="#LC-142-entry-point-in-list-loop" class="headerlink" title="LC 142 entry point in list loop"></a>LC 142 entry point in list loop</h4><ul>
+<li>if there is a loop in the list<br>two points, one go fast (2 steps a time), one go slow; if they meet</li>
+<li>locate the entry when n nodes in the loop<br>if there are n nodes, P1 go n steps in advance, P2 then follow, they meet at the entry</li>
+<li>how to count<br>find any loop node and move along until go back</li>
+</ul>
+<h4 id="LC-160-Intersection-of-two-linked-lists"><a href="#LC-160-Intersection-of-two-linked-lists" class="headerlink" title="LC 160 Intersection of two linked lists"></a>LC 160 Intersection of two linked lists</h4><p><strong>[method1]</strong> find the length of L1 and L2<br>P1 go advance (L1-L2) steps<br><strong>[method2]</strong> make a loop by connecting L1’s head with common’s tail node</p>
+<h4 id="LC-206-reverse-a-list-in-O-1"><a href="#LC-206-reverse-a-list-in-O-1" class="headerlink" title="LC 206 reverse a list in O(1)"></a>LC 206 reverse a list in O(1)</h4><p><strong>[method1]</strong> Stack [O(n)space]<br><strong>[method2]</strong> recursion<br><strong>[method3]</strong> know the ith next previous node</p>
+<h4 id="LC-445-Add-numbers-in-lists"><a href="#LC-445-Add-numbers-in-lists" class="headerlink" title="LC 445 Add numbers in lists **"></a>LC 445 Add numbers in lists <em>**</em></h4><p>reverse L1 and L2 and add in digits and remember the carry-bit<br><strong>PS:</strong> the result’s length might be longer than the origial</p>
+<ul>
+<li>reverse L1, L2</li>
+<li>reverse add(L1,L2)</li>
+</ul>
+<h2 id="Doubly-Linked-List"><a href="#Doubly-Linked-List" class="headerlink" title="Doubly Linked List"></a>Doubly Linked List</h2><p>{<br>  ListNode next;<br>  ListNode prev;<br>}</p>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise"></a>Exercise</h3><h4 id="Convert-BST-to-Doubly-Linked-List"><a href="#Convert-BST-to-Doubly-Linked-List" class="headerlink" title="Convert BST to Doubly Linked List"></a>Convert BST to Doubly Linked List</h4><p><strong>[Rotation]</strong> waiting to study</p>
+<h2 id="Circular-Linked-List"><a href="#Circular-Linked-List" class="headerlink" title="Circular Linked List"></a>Circular Linked List</h2><h4 id="facebook-Keep-circular-linked-list-sorted"><a href="#facebook-Keep-circular-linked-list-sorted" class="headerlink" title="[facebook] Keep circular linked list sorted"></a>[facebook] Keep circular linked list sorted</h4><p>waiting to study<br>new node: max, min, in between<br>using prev, next</p>
+<ul>
+<li>in between: prev &lt; n &lt; next</li>
+<li>min: after maxList</li>
+<li>max: after maxList<br><strong>special case:</strong> only 1 node; null list</li>
+</ul>
+<h1 id="Corner-Case-in-Linked-List"><a href="#Corner-Case-in-Linked-List" class="headerlink" title="Corner Case in Linked List"></a>Corner Case in Linked List</h1><ul>
+<li>empty lists</li>
+<li>lists with only node</li>
+<li>head node</li>
+<li>tail node</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shu1996.github.io/2018/05/27/common-methods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shu Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bon Voyage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/27/common-methods/" itemprop="url">common methods</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T16:53:41+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h2><p>grammar: stringObject.split(separator, howmany)<br>|parameter | description|<br>|-|-|<br>|separator|howmany|<br>|needed. string or regular expression|optional. number of substrings|</p>
+<p>e.g.<br>“2:3:4:5”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">split(&quot;:&quot;);</span><br><span class="line">&gt;&gt;[&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;]</span><br></pre></td></tr></table></figure></p>
+<h1 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h1><h2 id="Integer-parseInt-str"><a href="#Integer-parseInt-str" class="headerlink" title="Integer.parseInt(str)"></a>Integer.parseInt(str)</h2><p>convert the str to the int<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t[0] = &quot;25&quot;;</span><br><span class="line">int minute = Integer.parseInt(t[0]);</span><br><span class="line">&gt;&gt; minute = 25;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://shu1996.github.io/2018/05/27/L1-Hash-Table-and-String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -583,7 +978,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
